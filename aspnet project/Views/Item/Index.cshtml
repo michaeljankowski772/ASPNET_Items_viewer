@@ -1,0 +1,31 @@
+﻿@model List<aspnet_project.Models.Item>
+@{
+	ViewData["Title"] = "Item";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-6">
+                <div class="d-flex justify-content-center">
+                    <h4>@item.Name</h4>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img src="@item.ImageURL" style="width: 70%" />
+                </div>
+                <div class="d-flex justify-content-center">
+                    @item.Armor.ToString("N2") Armor
+                </div>
+                <div class="d-flex justify-content-center">
+                    @item.PhysicalReductionPercent.ToString("N2") percentage physical reduction
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">View Item</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+	}
